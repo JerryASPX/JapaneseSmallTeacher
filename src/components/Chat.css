@@ -1,0 +1,304 @@
+.chat-container {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 0;
+}
+
+.chat-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    margin: 0;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 0 24px 24px;
+}
+
+.icon-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    color: var(--dark);
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 12px;
+    transition: all 0.2s;
+}
+
+.icon-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    transform: translateX(-5px);
+}
+
+.teacher-status {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.status-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+.status-info h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-family: 'Kiwi Maru', serif;
+}
+
+.status-style {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.rate-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+.rate-control input[type="range"] {
+    accent-color: var(--primary);
+}
+
+.chat-messages-area {
+    position: relative;
+    z-index: 10;
+    flex: 1;
+    padding: 20px;
+    margin-top: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.messages-list {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+.message-wrapper {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    max-width: 80%;
+}
+
+.teacher-msg {
+    align-self: flex-start;
+}
+
+.user-msg {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.msg-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.message-bubble {
+    padding: 16px 20px;
+    position: relative;
+    min-width: 120px;
+}
+
+.teacher-msg .message-bubble {
+    border-bottom-left-radius: 4px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.user-msg .message-bubble {
+    border-bottom-right-radius: 4px;
+    background: rgba(226, 240, 203, 0.9);
+    /* matcha green tint */
+}
+
+.msg-jp {
+    font-size: 1.2rem;
+    margin: 0 0 8px 0;
+    font-weight: 500;
+    color: #2c3e50;
+    font-family: 'Kiwi Maru', serif;
+}
+
+.msg-tw {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #666;
+    border-top: 1px dashed rgba(0, 0, 0, 0.1);
+    padding-top: 8px;
+}
+
+.play-btn {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+}
+
+.play-btn:hover {
+    transform: scale(1.1);
+    color: #ffaa99;
+}
+
+.chat-footer {
+    position: relative;
+    z-index: 10;
+    margin: 0 20px 20px 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.mic-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffb7b2 0%, #ff8b94 100%);
+    border: 4px solid white;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(255, 139, 148, 0.4);
+    transition: all 0.3s;
+}
+
+.mic-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 139, 148, 0.6);
+}
+
+.mic-btn:active {
+    transform: scale(0.95);
+}
+
+.mic-btn.recording {
+    animation: pulse 1.5s infinite;
+    background: linear-gradient(135deg, #ff8b94 0%, #ff6b76 100%);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 139, 148, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 20px rgba(255, 139, 148, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 139, 148, 0);
+    }
+}
+
+.mic-hint {
+    font-size: 0.95rem;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+/* RWD for Chat */
+@media (max-width: 768px) {
+    .chat-header {
+        padding: 10px 15px;
+        border-radius: 0;
+    }
+
+    .icon-btn span {
+        display: none;
+        /* Hide text, keep icon */
+    }
+
+    .status-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .status-info h2 {
+        font-size: 1rem;
+    }
+
+    .chat-controls .rate-label,
+    .chat-controls .rate-value {
+        display: none;
+    }
+
+    .rate-control {
+        padding: 4px 8px;
+    }
+
+    .message-wrapper {
+        max-width: 90%;
+    }
+
+    .msg-jp {
+        font-size: 1.05rem;
+    }
+
+    .msg-tw {
+        font-size: 0.85rem;
+    }
+
+    .chat-messages-area {
+        padding: 10px;
+    }
+
+    .mic-btn {
+        width: 60px;
+        height: 60px;
+    }
+}
